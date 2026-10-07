@@ -1,0 +1,1294 @@
+/* =====================================================
+   SWARNA BIRTHDAY WEBSITE
+   PREMIUM / DREAMY / MINIMAL
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: #302d2b;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 255, 255, 0.8),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255, 185, 205, 0.28),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #91d8ed 0%,
+            #d4eef1 42%,
+            #f4e3d1 72%,
+            #efcbd0 100%
+        );
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #91d8ed,
+            #f4e3d1
+        );
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+
+    animation:
+        loaderEnter 1s ease;
+}
+
+.loader-heart {
+    font-family: "Playfair Display", serif;
+
+    font-size: 70px;
+
+    color: #df718c;
+
+    animation:
+        heartPulse 1.5s ease-in-out infinite;
+}
+
+.loader-content p {
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: #657274;
+}
+
+@keyframes loaderEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background-elements {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+.background-elements::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -180px;
+    left: -120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.65),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        backgroundFloat 10s ease-in-out infinite;
+}
+
+.background-elements::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -160px;
+    bottom: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,140,175,0.25),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    animation:
+        backgroundFloatReverse 12s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(70px, 50px);
+    }
+}
+
+@keyframes backgroundFloatReverse {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-60px, -50px);
+    }
+}
+
+
+/* =====================================================
+   FLOATING DOTS
+===================================================== */
+
+.floating-dot {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.8);
+
+    animation:
+        dotFloat 7s ease-in-out infinite;
+}
+
+.dot-1 {
+    top: 20%;
+    left: 12%;
+}
+
+.dot-2 {
+    top: 70%;
+    left: 20%;
+
+    animation-delay: 1s;
+}
+
+.dot-3 {
+    top: 25%;
+    right: 15%;
+
+    animation-delay: 2s;
+}
+
+.dot-4 {
+    top: 80%;
+    right: 25%;
+
+    animation-delay: 3s;
+}
+
+.dot-5 {
+    top: 50%;
+    right: 8%;
+
+    animation-delay: 4s;
+}
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: 0.3;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.5);
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+    position: relative;
+
+    min-height: 100vh;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   SCREEN SYSTEM
+===================================================== */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(30px)
+        scale(0.97);
+
+    transition:
+        opacity 0.8s cubic-bezier(.16,1,.3,1),
+        transform 0.8s cubic-bezier(.16,1,.3,1),
+        visibility 0.8s;
+}
+
+.screen.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   INTRO SCREEN
+===================================================== */
+
+.intro-content {
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    color: #667577;
+}
+
+.intro-screen h1 {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(65px, 10vw, 120px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    color: #302c2a;
+}
+
+.intro-screen h1 span {
+    color: #df718c;
+
+    font-style: italic;
+}
+
+.intro-text {
+    margin-top: 30px;
+
+    color: #5f5c59;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    position: relative;
+
+    margin-top: 35px;
+
+    padding:
+        15px
+        26px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    border-radius: 100px;
+
+    background:
+        rgba(255,255,255,0.3);
+
+    color: #393533;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(50,70,75,0.08);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.65),
+            transparent
+        );
+
+    transition: left 0.7s ease;
+}
+
+.btn:hover::before {
+    left: 120%;
+}
+
+.btn:hover {
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    background: #df718c;
+
+    color: white;
+
+    border-color: #df718c;
+
+    box-shadow:
+        0 15px 35px
+        rgba(223,113,140,0.3);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.arrow {
+    margin-left: 10px;
+
+    font-size: 16px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   BIRTHDAY SCREEN
+===================================================== */
+
+.birthday-wrapper {
+    width: min(950px, 95vw);
+
+    display: grid;
+
+    grid-template-columns:
+        0.85fr
+        1.15fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding: 50px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.42),
+            rgba(255,255,255,0.15)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    backdrop-filter: blur(30px);
+
+    box-shadow:
+        0 40px 100px
+        rgba(45,65,75,0.18),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.7);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.birthday-wrapper::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 600px;
+
+    top: -200px;
+    left: -300px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transform: rotate(25deg);
+
+    animation:
+        cardShine 7s infinite;
+}
+
+@keyframes cardShine {
+
+    0% {
+        left: -350px;
+    }
+
+    25% {
+        left: 120%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.photo-container {
+    position: relative;
+
+    width: min(330px, 100%);
+
+    margin: auto;
+
+    animation:
+        photoFloat 6s ease-in-out infinite;
+}
+
+.photo-glow {
+    position: absolute;
+
+    inset: -40px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8),
+            rgba(255,160,185,0.25),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        glowPulse 4s ease-in-out infinite;
+}
+
+.photo-ring {
+    position: absolute;
+
+    inset: -14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.7);
+
+    border-radius:
+        190px
+        190px
+        45px
+        45px;
+
+    transform: rotate(3deg);
+
+    z-index: -1;
+}
+
+.photo {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+
+    border-radius:
+        180px
+        180px
+        35px
+        35px;
+
+    border:
+        5px solid
+        rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 30px 70px
+        rgba(45,55,60,0.25);
+
+    transition:
+        transform 0.6s ease,
+        box-shadow 0.6s ease;
+
+    animation:
+        photoReveal 1.2s ease;
+}
+
+.photo:hover {
+    transform:
+        scale(1.035)
+        rotate(-1deg);
+
+    box-shadow:
+        0 40px 90px
+        rgba(45,55,60,0.32);
+}
+
+@keyframes photoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes photoReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85)
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   BIRTHDAY CONTENT
+===================================================== */
+
+.birthday-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.birthday-content h2,
+.message-card h2,
+.final-content h2 {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(50px, 6vw, 78px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    color: #302c2a;
+}
+
+.birthday-content h2 span,
+.message-card h2 span,
+.final-content h2 span {
+    color: #df718c;
+
+    font-style: italic;
+}
+
+.message {
+    max-width: 450px;
+
+    margin-top: 28px;
+
+    color: #5e5b58;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   MESSAGE SCREEN
+===================================================== */
+
+.message-screen {
+    text-align: center;
+}
+
+.message-card {
+    max-width: 700px;
+
+    padding: 55px 45px;
+
+    border-radius: 40px;
+
+    background:
+        rgba(255,255,255,0.24);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.6);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 35px 90px
+        rgba(50,65,70,0.16);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.heart-icon {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    color: #df718c;
+
+    animation:
+        heartPulse 1.8s ease-in-out infinite;
+
+    margin-bottom: 20px;
+}
+
+.message-card h2 {
+    font-size:
+        clamp(45px, 6vw, 70px);
+}
+
+.typing-container {
+    max-width: 500px;
+
+    min-height: 100px;
+
+    margin:
+        30px
+        auto
+        0;
+}
+
+.typing-text {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    color: #4c4744;
+
+    font-style: italic;
+}
+
+.final-btn {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.3s ease;
+}
+
+.final-btn.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+.final-screen {
+    text-align: center;
+}
+
+.final-content {
+    max-width: 650px;
+}
+
+.final-heart {
+    width: 100px;
+    height: 100px;
+
+    margin:
+        0 auto
+        25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 20px 50px
+        rgba(223,113,140,0.15);
+}
+
+.final-heart span {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 65px;
+
+    color: #df718c;
+
+    animation:
+        heartPulse 1.6s ease-in-out infinite;
+}
+
+.final-content h2 {
+    font-size:
+        clamp(55px, 8vw, 90px);
+}
+
+.final-message {
+    margin-top: 30px;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #5d5956;
+}
+
+.signature {
+    margin-top: 25px;
+
+    color: #77716d;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 15px;
+
+    font-style: italic;
+}
+
+.replay-btn {
+    margin-top: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b7777;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.replay-btn:hover {
+    opacity: 1;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+#confetti {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 100;
+}
+
+.confetti-piece {
+    position: fixed;
+
+    top: -20px;
+
+    width: 7px;
+    height: 12px;
+
+    border-radius: 2px;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    animation:
+        confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   HEARTS
+===================================================== */
+
+#hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 90;
+}
+
+.heart {
+    position: fixed;
+
+    bottom: -40px;
+
+    color: #df718c;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    opacity: 0.5;
+
+    pointer-events: none;
+
+    animation:
+        heartFloat
+        var(--duration)
+        linear
+        forwards;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            translateX(30px)
+            rotate(15deg);
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            translateX(-40px)
+            rotate(-20deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .screen {
+        padding: 18px;
+    }
+
+    .intro-screen h1 {
+        font-size: 65px;
+
+        letter-spacing: -4px;
+    }
+
+    .intro-text {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+    .birthday-wrapper {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding:
+            35px
+            22px;
+
+        border-radius: 30px;
+
+        max-height: 94vh;
+
+        overflow-y: auto;
+    }
+
+    .photo-container {
+        width: 62%;
+
+        max-width: 230px;
+    }
+
+    .birthday-content {
+        text-align: center;
+    }
+
+    .birthday-content h2 {
+        font-size: 50px;
+    }
+
+    .message {
+        font-size: 14px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .message-card {
+        width: 100%;
+
+        padding:
+            45px
+            22px;
+
+        border-radius: 30px;
+    }
+
+    .message-card h2 {
+        font-size: 47px;
+    }
+
+    .typing-text {
+        font-size: 19px;
+    }
+
+    .final-content h2 {
+        font-size: 60px;
+    }
+
+    .final-message {
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .intro-screen h1 {
+        font-size: 55px;
+    }
+
+    .birthday-wrapper {
+        padding:
+            28px
+            18px;
+    }
+
+    .photo-container {
+        width: 58%;
+    }
+
+    .birthday-content h2 {
+        font-size: 43px;
+    }
+
+    .message-card {
+        padding:
+            35px
+            18px;
+    }
+
+    .message-card h2 {
+        font-size: 40px;
+    }
+
+    .final-content h2 {
+        font-size: 52px;
+    }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

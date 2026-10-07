@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A little birthday surprise for Swarna"
+    >
+
+    <title>For Swarna ♡</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         LOADING SCREEN
+    ========================================== -->
+
+    <div class="loader" id="loader">
+
+        <div class="loader-content">
+
+            <div class="loader-heart">
+                ♡
+            </div>
+
+            <p>
+                Just a little something...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         FLOATING BACKGROUND
+    ========================================== -->
+
+    <div class="background-elements">
+
+        <span class="floating-dot dot-1"></span>
+        <span class="floating-dot dot-2"></span>
+        <span class="floating-dot dot-3"></span>
+        <span class="floating-dot dot-4"></span>
+        <span class="floating-dot dot-5"></span>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             SCREEN 1
+             INTRO
+        ====================================== -->
+
+        <section
+            class="screen intro-screen active"
+            id="introScreen"
+        >
+
+            <div class="intro-content">
+
+                <p class="eyebrow">
+                    A little surprise
+                </p>
+
+
+                <h1>
+                    Hey,
+                    <span>Swarna.</span>
+                </h1>
+
+
+                <p class="intro-text">
+
+                    I could've just sent you a
+                    normal birthday message...
+
+                    <br>
+
+                    but I thought I'd make
+                    something instead.
+
+                </p>
+
+
+                <button
+                    class="btn primary-btn"
+                    id="openBtn"
+                    type="button"
+                >
+
+                    Open your surprise
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCREEN 2
+             PHOTO + BIRTHDAY
+        ====================================== -->
+
+        <section
+            class="screen birthday-screen"
+            id="birthdayScreen"
+        >
+
+            <div class="birthday-wrapper">
+
+
+                <!-- PHOTO -->
+
+                <div class="photo-container">
+
+                    <div class="photo-glow"></div>
+
+                    <div class="photo-ring"></div>
+
+                    <img
+                        src="swarna.jpeg"
+                        alt="Swarna"
+                        class="photo"
+                    >
+
+                </div>
+
+
+                <!-- TEXT -->
+
+                <div class="birthday-content">
+
+                    <p class="eyebrow">
+                        Today is your day
+                    </p>
+
+
+                    <h2>
+                        Happy
+                        <span>Birthday</span>
+                        Swarna ♡
+                    </h2>
+
+
+                    <p class="message">
+
+                        Hope this year brings you
+                        happiness, beautiful memories,
+                        and plenty of reasons to smile.
+
+                        <br><br>
+
+                        You deserve a really good one.
+
+                    </p>
+
+
+                    <button
+                        class="btn secondary-btn"
+                        id="messageBtn"
+                        type="button"
+                    >
+
+                        There's more...
+
+                        <span>
+                            ↓
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCREEN 3
+             PERSONAL MESSAGE
+        ====================================== -->
+
+        <section
+            class="screen message-screen"
+            id="messageScreen"
+        >
+
+            <div class="message-card">
+
+
+                <div class="heart-icon">
+                    ♡
+                </div>
+
+
+                <p class="eyebrow">
+                    One more thing
+                </p>
+
+
+                <h2>
+                    A tiny message
+                    <span>for you.</span>
+                </h2>
+
+
+                <div
+                    class="typing-container"
+                    id="typingContainer"
+                >
+
+                    <p
+                        class="typing-text"
+                        id="typingText"
+                    ></p>
+
+                </div>
+
+
+                <button
+                    class="btn final-btn"
+                    id="finalBtn"
+                    type="button"
+                >
+
+                    One last thing...
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCREEN 4
+             FINAL SURPRISE
+        ====================================== -->
+
+        <section
+            class="screen final-screen"
+            id="finalScreen"
+        >
+
+            <div class="final-content">
+
+
+                <div class="final-heart">
+
+                    <span>♡</span>
+
+                </div>
+
+
+                <p class="eyebrow">
+                    Okay, last one
+                </p>
+
+
+                <h2>
+
+                    Stay exactly
+                    <br>
+
+                    <span>this cute.</span>
+
+                </h2>
+
+
+                <p class="final-message">
+
+                    That's it.
+
+                    <br>
+
+                    No long speech.
+
+                    <br><br>
+
+                    Just wanted to make your
+                    birthday a little more special.
+
+                </p>
+
+
+                <div class="signature">
+
+                    — from someone who thinks
+                    you're kinda adorable
+
+                </div>
+
+
+                <button
+                    class="replay-btn"
+                    id="replayBtn"
+                    type="button"
+                >
+
+                    Replay ♡
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         CONFETTI CONTAINER
+    ========================================== -->
+
+    <div
+        id="confetti"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =========================================
+         HEART CONTAINER
+    ========================================== -->
+
+    <div
+        id="hearts"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
